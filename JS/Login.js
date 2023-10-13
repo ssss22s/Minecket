@@ -2,30 +2,6 @@
 //    LOGIN SYSTEM
 // ===================
 
-
-let loginForm = document.getElementById("login-form");
-
-loginForm.addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent the form from submitting normally
-
-  let username = document.getElementById("username").value;
-  let password = document.getElementById("password").value;
-
-  // Send login request to server, then check response for success
-  // ...
-
-  if (loginSuccessful) {
-    localStorage.setItem("loggedIn", "true"); // Store flag indicating user is logged in
-    window.location.href = "../HTML/Login.html"; // Redirect to home page
-  } else {
-    alert("Login failed. Please try again.");
-  }
-});
-if (!localStorage.getItem("loggedIn")) {
-  window.location.href = "./HTML/Login.html"; // Redirect to login page
-}
-
-
 function isUserLogged() {
 	const cookie = document.cookie;
 	return cookie.includes("logged=true");
