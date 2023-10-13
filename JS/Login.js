@@ -43,8 +43,8 @@ form.addEventListener("submit", function (event) {
 	   mailInput.reportValidity();
  
 	   setTimeout(() => {
-		  nickInput.classList.remove("input-invalid");
-		  nickInput.setCustomValidity("");
+		  mailInput.classList.remove("input-invalid");
+		  mailInput.setCustomValidity("");
 		}, 2000);
 	   return;
 	}
@@ -55,8 +55,8 @@ form.addEventListener("submit", function (event) {
 	   pswInput.reportValidity();
  
 	   setTimeout(() => {
-		  nickInput.classList.remove("input-invalid");
-		  nickInput.setCustomValidity("");
+		  pswInput.classList.remove("input-invalid");
+		  pswInput.setCustomValidity("");
 		}, 2000);
 	   return;
 	}
