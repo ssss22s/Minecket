@@ -7,3 +7,13 @@
 
   <button type="submit">Login</button>
 </form>
+<button id="logout-button">Logout</button>
+
+<script>
+let logoutButton = document.getElementById("logout-button");
+
+logoutButton.addEventListener("click", function(event) {
+  localStorage.removeItem("loggedIn"); // Remove flag indicating user is logged in
+  window.location.href = "./login.html"; // Redirect to login page
+});
+</script>
