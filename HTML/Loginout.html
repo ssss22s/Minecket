@@ -1,10 +1,9 @@
-<button id="logout-button">Logout</button>
+<form id="login-form">
+  <label for="username">Username:</label>
+  <input type="text" id="username" name="username" required>
 
-<script>
-let logoutButton = document.getElementById("logout-button");
+  <label for="password">Password:</label>
+  <input type="password" id="password" name="password" required>
 
-logoutButton.addEventListener("click", function(event) {
-  localStorage.removeItem("loggedIn"); // Remove flag indicating user is logged in
-  window.location.href = "../HTML/Login.html"; // Redirect to login page
-});
-</script>
+  <button type="submit">Login</button>
+</form>
