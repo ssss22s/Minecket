@@ -7,13 +7,6 @@ function isUserLogged() {
 	return cookie.includes("logged=true");
 }
 
-<?php
-session_start();
-session_destroy();
-header("Location: ../HTML/Loginout.html");
-exit;
-?>
-
 if(isUserLogged()) {
 	window.location.href = "../HTML/Cart.html";
 }
