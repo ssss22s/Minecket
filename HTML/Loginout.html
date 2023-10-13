@@ -7,6 +7,9 @@
 
   <button type="submit">Login</button>
 </form>
+if (!localStorage.getItem("loggedIn")) {
+  window.location.href = "../HTML/Login.html"; // Redirect to login page
+}
 <button id="logout-button">Logout</button>
 
 <script>
