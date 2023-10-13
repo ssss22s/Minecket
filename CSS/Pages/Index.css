@@ -1,1 +1,7 @@
-/* Add more styles here :D */
+.logout {
+  display: none;
+}
+
+.authenticated .logout {
+  display: block;
+}
