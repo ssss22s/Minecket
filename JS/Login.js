@@ -6,7 +6,15 @@ function isUserLogged() {
 	const cookie = document.cookie;
 	return cookie.includes("logged=true");
 }
- 
+
+
+ var isAuthenticated = document.cookie.indexOf("authenticated=true") >= 0;
+
+if (isAuthenticated) {
+  document.body.className += " authenticated";
+}
+
+
 if(isUserLogged()) {
 	window.location.href = "../HTML/Cart.html";
 }
