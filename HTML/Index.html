@@ -40,12 +40,12 @@
 <div id="sideNav" class="sidenav">
 
 <a href="javascript:void(0)" class="closebtn" onclick="closeNav()" class="staff">×</a>
-<a href="javascript:switchSrc('listAll.html')" class="staff">List All</a>
-<a href="javascript:switchSrc('listById.html')" class="staff">Search By Id</a>
+<a href="javascript:switchSrc('Shop.html')" class="staff">List All</a>
+<a href="javascript:switchSrc('Cart.html')" class="staff">Search By Id</a>
 
-<a href="javascript:switchSrc('listByName.html')" class="manager">Update Employee Record</a>
-<a href="javascript:switchSrc('incrementSalary.html')" class="manager">Increment Salary</a>
-<a href="javascript:switchSrc('about.html')">About</a>
+<a href="javascript:switchSrc('Index.html')" class="manager">Update Employee Record</a>
+<a href="javascript:switchSrc('Rules.html')" class="manager">Increment Salary</a>
+<a href="javascript:switchSrc('Login.html')">About</a>
 </div>
 <div id="main">
 <div align="right">
@@ -95,7 +95,7 @@ function logout() {
   xmllogout.send();
 
   xmllogout.onreadystatechange = function() {
-    window.location.replace("index.html");
+    window.location.replace("Index.html");
   }
 
  return true;
