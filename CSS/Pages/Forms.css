@@ -1,11 +1,5 @@
 @import url(../Components/Palette.css);
 
-.list-group li {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
 .login form {
     background-color: var(--primary-bc);
     border-radius: 5px;
