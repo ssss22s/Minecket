@@ -21,11 +21,13 @@ form.addEventListener("submit", function (event) {
  
 	const nick = nickInput.value.trim();
 	const confirm = confirmInput.value.trim();
+	const mail = mailInput.value.trim();
+	const psw = pswInput.value.trim();
  
-	if(nick.length < 3 || nick.length > 16) {
+	if(nick.length < 3 || nick.length > 30) {
 	   form.reset();
 	   nickInput.classList.add("input-invalid");
-	   nickInput.setCustomValidity("Add a nickname between 3 to 16 characters");
+	   nickInput.setCustomValidity("حط اسم من 3 الئ 30");
 	   nickInput.reportValidity();
  
 	   setTimeout(() => {
@@ -34,11 +36,35 @@ form.addEventListener("submit", function (event) {
 		}, 2000);
 	   return;
 	}
+			if(mail.length < 8 || mail.length > 69) {
+	   form.reset();
+	   mailInput.classList.add("input-invalid");
+	   mailInput.setCustomValidity("ايميلك خطأ تاكد من الايميل");
+	   mailInput.reportValidity();
  
-	if(confirm.length < 3 || confirm.length > 16) {
+	   setTimeout(() => {
+		  nickInput.classList.remove("input-invalid");
+		  nickInput.setCustomValidity("");
+		}, 2000);
+	   return;
+	}
+		if(psw.length < 8 || psw.length > 69) {
+	   form.reset();
+	   pswInput.classList.add("input-invalid");
+	   pswInput.setCustomValidity("حط باسورد من 8 الئ 69");
+	   pswInput.reportValidity();
+ 
+	   setTimeout(() => {
+		  nickInput.classList.remove("input-invalid");
+		  nickInput.setCustomValidity("");
+		}, 2000);
+	   return;
+	}
+ 
+	if(confirm.length < 3 || confirm.length > 30) {
 		form.reset();
 		confirmInput.classList.add("input-invalid");
-		confirmInput.setCustomValidity("Add a nickname between 3 to 16 characters");
+		confirmInput.setCustomValidity("تحقق من الاسم ربما لايتطابق او عدد الاحرف ناقصه");
 		confirmInput.reportValidity();
   
 		setTimeout(() => {
