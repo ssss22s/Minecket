@@ -21,7 +21,9 @@ loginForm.addEventListener("submit", function(event) {
     alert("Login failed. Please try again.");
   }
 });
-
+if (!localStorage.getItem("loggedIn")) {
+  window.location.href = "./HTML/Login.html"; // Redirect to login page
+}
 
 
 function isUserLogged() {
