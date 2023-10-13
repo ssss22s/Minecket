@@ -19,12 +19,12 @@ form.addEventListener("submit", function (event) {
 	const nickInput = document.querySelector("#nick");
 	const confirmInput = document.querySelector("#confirm");
         const mailInput = document.querySelector("#mail");
-	const pswInput = document.querySelector("#psw");
+	const passwordInput = document.querySelector("#psw");
 	
 	const nick = nickInput.value.trim();
 	const confirm = confirmInput.value.trim();
 	const mail = mailInput.value.trim();
-	const psw = pswInput.value.trim();
+	const password = passwordInput.value.trim();
  
 	if(nick.length < 3 || nick.length > 30) {
 	   form.reset();
@@ -50,15 +50,15 @@ form.addEventListener("submit", function (event) {
 		}, 2000);
 	   return;
 	}
-		if(psw.length < 8 || psw.length > 69) {
+		if(password.length < 8 || password.length > 69) {
 	   form.reset();
-	   pswInput.classList.add("input-invalid");
-	   pswInput.setCustomValidity("حط باسورد من 8 الئ 69");
-	   pswInput.reportValidity();
+	   passwordInput.classList.add("input-invalid");
+	   passwordInput.setCustomValidity("حط باسورد من 8 الئ 69");
+	   passwordInput.reportValidity();
  
 	   setTimeout(() => {
-		  pswInput.classList.remove("input-invalid");
-		  pswInput.setCustomValidity("");
+		  passwordInput.classList.remove("input-invalid");
+		  passwordInput.setCustomValidity("");
 		}, 2000);
 	   return;
 	}
