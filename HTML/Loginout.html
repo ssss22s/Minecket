@@ -1,8 +1,7 @@
-</script>
 let logoutButton = document.getElementById("logout-button");
 logoutButton.addEventListener("click", function(e) {
   // Remove user info from session storage or cookies
   sessionStorage.removeItem("username");
   // And redirect user to login page
-  window.location.href = "../HTML/Login.html";
+  window.location.href = "/login.html";
 });
