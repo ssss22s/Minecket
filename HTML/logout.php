@@ -3,7 +3,7 @@ if(isset($_GET['logout'])) {
 
 session_start();
 session_destroy();
-header('Location: ./HTML/Login.html');
+header('Location: ../HTML/Login.html');
 exit;
 }
 ?>
