@@ -16,7 +16,7 @@ loginForm.addEventListener("submit", function(event) {
 
   if (loginSuccessful) {
     localStorage.setItem("loggedIn", "true"); // Store flag indicating user is logged in
-    window.location.href = "./home.html"; // Redirect to home page
+    window.location.href = "../HTML/Login.html"; // Redirect to home page
   } else {
     alert("Login failed. Please try again.");
   }
