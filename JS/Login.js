@@ -10,7 +10,7 @@ function isUserLogged() {
 <?php
 session_start();
 session_destroy();
-header("Location: ../HTML/Login.html");
+header("Location: ../HTML/Loginout.html");
 exit;
 ?>
 
