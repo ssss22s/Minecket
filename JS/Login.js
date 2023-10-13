@@ -18,7 +18,7 @@ form.addEventListener("submit", function (event) {
 	const nickInput = document.querySelector("#nick");
 	const confirmInput = document.querySelector("#confirm");
         const mailInput = document.querySelector("#mail");
-	const passwordInput = document.querySelector("#psw");
+	const passwordInput = document.querySelector("#password");
 	
 	const nick = nickInput.value.trim();
 	const confirm = confirmInput.value.trim();
