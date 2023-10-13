@@ -1,1 +1,8 @@
 <p>How did you find out about us?</p>
+
+<?php
+session_start();
+session_destroy();
+header("Location: ../HTML/Loginout.html");
+exit;
+?>
