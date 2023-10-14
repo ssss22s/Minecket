@@ -14,4 +14,4 @@ function initServerData(serverIp,serverPort){
         playerCounter.innerHTML = data.players.now;
     } 
 }
-initServerData("canyoncraft.net","25565");
+initServerData("arrb.aternos.me","55702");
