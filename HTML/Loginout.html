@@ -1,3 +1,22 @@
+
+
+
+function handleServerStatus(data){
+    const motd = document.getElementById("motd");
+    motd.innerHTML = data.motd;
+
+    const playerCounter = document.getElementById("player-count");
+    playerCounter.innerHTML = data.players.now;
+
+    const logo = document.getElementById("server-icon");
+    logo.src = data.favicon;
+
+} 
+
+
+
+
+
 <script>
     function initServerData(serverIp,serverPort){
         const serverIpElement = document.getElementById('server-ip');
