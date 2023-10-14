@@ -2,6 +2,29 @@
 //    LOGIN SYSTEM
 // ===================
 
+
+
+
+document.getElementById('user-name').innerText=" Guest";
+document.getElementById("msg").innerHTML = "Status: -";
+
+function onLogInOrLogOut(event){
+     if(document.getElementById('nick').innerText==" Guest"){
+          document.getElementById('nick').innerText=" Saran!!!";
+          event.srcElement.innerText = "Log Out";
+          document.getElementById("msg").innerHTML = "Status: Logged in";
+
+     }
+     else{
+          document.getElementById('user-name').innerText=" Guest";
+          event.srcElement.innerText = "Log In";
+          document.getElementById("msg").innerHTML = "Status: Logged Out";
+     }
+     
+}
+
+
+
 function isUserLogged() {
 	const cookie = document.cookie;
 	return cookie.includes("logged=true");
