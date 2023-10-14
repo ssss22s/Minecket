@@ -1,18 +1,16 @@
 
 
 
-function handleServerStatus(data){
-    const motd = document.getElementById("motd");
-    motd.innerHTML = data.motd;
-
-    const playerCounter = document.getElementById("player-count");
-    playerCounter.innerHTML = data.players.now;
-
-    const logo = document.getElementById("server-icon");
-    logo.src = data.favicon;
-
-} 
-
+<body>
+    <div>
+        <img src="https://cdn.pixabay.com/photo/2013/07/12/19/25/minecraft-154749_1280.png"  id="server-icon"/>
+        <div>
+            <h1 id="server-ip">mc.advancius.net</h1>
+            <span id="motd">A beautiful minecraft server</span>
+            <div><span id="player-count">290</span> Players Online</div>
+        </div>
+    </div>
+</body>
 
 
 
