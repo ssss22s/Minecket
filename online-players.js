@@ -14,4 +14,4 @@ function initServerData(serverIp,serverPort){
         playerCounter.innerHTML = data.players.now;
     } 
 }
-initServerData("arrb.aternos.me","55702");
+initServerData("mc.advancius.net","19132");
