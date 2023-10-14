@@ -1,50 +1,74 @@
+<!--
+- Joelmatic: https://github.com/TheRealJoelmatic
+ - Denies
+ - ByBilly: https://bybilly.uk/ 
+-->
+
 <!DOCTYPE html>
-<html lang="en"> 
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="robots" content="nofollow"/>
+	<!-- Info meta tags, important for social media + SEO -->
+	<title>Maticsky - Official Website</title>
+	<meta name="description" content="Maticsky is a new upcoming Minecraft server. You can join with the IP 'Maticsky.club'.">
+	<meta property="og:title" content="Maticsky - Official Website Portal">
+	<meta property="og:site_name" content="Maticsky">
+	<meta property="og:description" content="Maticsky is a new upcoming Minecraft server. You can join with the IP 'Maticsky.club'.">
+	<meta property="og:image" content="https://media.discordapp.net/attachments/649686092995624960/1080570386103676948/2023-02-16_17.14.12.png?width=1277&height=683">
+	<meta property="og:url" content="https://media.discordapp.net/">
+	<meta name="twitter:card" content="summary_large_image">
 
-    <meta name="description" content="Example Description">
-    <meta name="keywords" content="minecraft, server, mc, minecraft server, Example Server">
-    <meta name="author" content="Example.xyz">
-    <link rel="icon" href="assets/logo.ico"> 
-
-    <meta property="og:type" content="website">
-    <meta property="og:url" content="https://www.Example.xyz">
-    <meta property="og:title" content="Example Server">
-    <meta property="og:description" content="Example Description">
-    <meta property="og:image" content="https://image">
-    <meta name="theme-color" content=#12345>
-
-    <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.Example.xyz">
-    <meta property="twitter:title" content="Example Server">
-    <meta property="twitter:description" content="Example Description">
-    <meta property="twitter:image" content="https://image">
-
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" integrity="sha512-c42qTSw/wPZ3/5LBzD+Bw5f7bSF2oxou6wEb+I/lqeaKV5FDIfMvvRp772y4jcJLKuGUOpbJMdg/BTl50fJYAw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="dist/style.css"> 
-    <script src="https://kit.fontawesome.com/5acf4d9e80.js" crossorigin="anonymous"></script>
-
+	<link rel="icon" type="image/png" href="favicon-16x16.png" sizes="16x16" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta charset="utf-8">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap" rel="stylesheet">
+	<link rel="stylesheet" href="css/stylesheet.css">
 </head>
 <body>
-    <div class="bg"></div>
-    <!--- Particles -->  <div class="animation-wrapper"> <div class="particle particle-1"></div> <div class="particle particle-2"></div> <div class="particle particle-3"></div> <div class="particle particle-4"></div> </div>
-    <div class="center">
-        <div class="animate__animated animate__jackInTheBox">
-            <h1>TemplateServer</h1> <!--- Server Name -->
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p> <!--- Description -->
-            <div class="animate__animated animate__bounceIn animate__delay-1s">
-                <a href="#"><button class="btn1"><i class="fab fa-discord"></i> Discord</button></a>
-                <a href="#"><button class="btn2"><i class="fas fa-shopping-basket"></i> Store</button></a>
-                <a href="#"><button class="btn3"><i class="fas fa-poll"></i> Vote</button></a>
-            </div>
-        </div>
-    </div>
-    <script src="app/js/script.js"></script>
-    <script src="https://kit.fontawesome.com/5acf4d9e80.js" crossorigin="anonymous"></script>
+	<div class="container">
+		<div class="logo">
+			<!-- In the img folder, upload your logo -->
+			<!-- Make sure you name it 'logo.png' or update the code below -->
+			<img src="img/logo.png" alt="Maticsky logo">
+		</div>
+
+		<div class="items">
+
+			<a href="https://discord.gg/8YxgkpKDve" class="item forums">
+				<div>
+					<img src="img/discord.png" alt="Minecraft discord icon" class="img">
+					<p class="subtitle">Hang out on our</p>
+					<p class="title">Discord</p>
+				</div>
+			</a>
+
+			<a href="https://maticsky.craftingstore.net/" class="item store">
+			<div>
+				<img src="img/store.png" alt="Minecraft store icon" class="img">
+				<p class="subtitle">donate on our</p>
+				<p class="title">Store</p>
+			</div>
+			</a>
+
+			<a href="Voting.html" class="item vote">
+			<div>
+				<img src="img/vote.png" alt="Minecraft voting icon" class="img">
+				<p class="subtitle">support us by</p>
+				<p class="title">Voting</p>
+			</div>
+			</a>
+
+		</div>
+
+		<div class="playercount">
+			<p>Join <span class="sip" data-ip="Maticsky.club" data-port="25565">
+			</span> other players on <span class="ip">Maticsky.club</span></p>
+		</div>
+	</div>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+	<script src="js/firefly.js" type="text/javascript"></script>
+	<script src="js/main.js" type="text/javascript"></script>
 </body>
 </html>
-<!--- WEBSITE BY: github.com/OLIMINATOR -->
