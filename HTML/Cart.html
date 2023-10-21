@@ -95,9 +95,8 @@
       function displayUsername() {
         const username = getCookie("username");
         const usernameDisplay = document.getElementById("username-display");
-        if (username) {
-          usernameDisplay.innerHTML = `<h2>Cart</h2> <h1>${username}</h1>
-          <span>Your shopping cart!</span>`;
+    if (username) {
+          usernameDisplay.innerHTML = `<h1>${username}<h1><span>السله الخاصه فيك</span>`;
         } else {
           usernameDisplay.innerHTML = "No username saved.";
         }
