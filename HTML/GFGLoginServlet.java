@@ -25,7 +25,7 @@ public class GFGLoginServlet extends HttpServlet {
 	{
 
 		PrintWriter out = response.getWriter();
-		request.getRequestDispatcher("link.html")
+		request.getRequestDispatcher("Login.html")
 			.include(request,
 					response); // This statement includes
 								// link.html in this servlet
@@ -45,7 +45,7 @@ public class GFGLoginServlet extends HttpServlet {
 		else {
 			out.println(
 				"Sorry invalid username or password!");
-			request.getRequestDispatcher("login.html")
+			request.getRequestDispatcher("Login.html")
 				.include(request, response);
 			// Above statement includes login.html for the
 			// user to re-login if username or password is
