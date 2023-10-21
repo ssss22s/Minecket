@@ -1,5 +1,5 @@
-if(!Cookies.get('userInfo')){
-    return <Redirect to='/login'  />
-  }else{
-      const userData = JSON.parse(Cookies.get('userInfo'));
-      //your ui here
+<Router>
+    <Switch>
+        <Route path="/PAGE_NAME" component={yourComponent}/>
+    </Switch>
+</Router>
