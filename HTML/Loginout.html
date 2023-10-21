@@ -61,12 +61,22 @@
   <button type="submit">Submit</button>
 </form>
 <script>
+    function validateForm() {
+        const mail = getCookie("mail");
+        const mail = document.getElementById("mail");
+        if (mail) {
+          mail.innerHTML = `Your username is: ${mail}`;
+        } else {
+          mail.innerHTML = "No username saved.";
+        }
+      }
 function validateForm() {
-  var maol = document.getElementById("mail").value;
+  var mail = document.getElementById("mail").value;
   var pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
   if (!pattern.test(email)) {
     alert("Please enter a valid email address.");
     return false;
+    
   }
 }
 </script>
