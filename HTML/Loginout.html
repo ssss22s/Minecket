@@ -4,10 +4,9 @@
     <title>Cookie Example</title>
   </head>
   <body>
-    <h1>Cookie Example</h1>   
-    <h2>الانضمام</h2>
-    <label for="nick">Username:</label>
-    <input type="text" id="nick" />
+    <h1>Cookie Example</h1>
+    <label for="username">Username:</label>
+    <input type="text" id="username" />
     <button onclick="saveUsername()">Save Username</button>
     <button onclick="deleteUsername()">Delete Username</button>
     <p id="username-display"></p>
@@ -23,13 +22,12 @@
         document.cookie = `username=; expires=${getExpirationDate(-1)}`;
         displayUsername();
       }
-      
       // Function to display the username if it exists
       function displayUsername() {
-        const username = getCookie("nick");
-        const usernameDisplay = document.getElementById("nick-display");
+        const username = getCookie("username");
+        const usernameDisplay = document.getElementById("username-display");
         if (username) {
-          usernameDisplay.innerHTML = `Your username is: ${nick}`;
+          usernameDisplay.innerHTML = `Your username is: ${username}`;
         } else {
           usernameDisplay.innerHTML = "No username saved.";
         }
