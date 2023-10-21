@@ -1,43 +1,44 @@
-
-
-
-<body>
-    <div>
-        <img src="https://cdn.pixabay.com/photo/2013/07/12/19/25/minecraft-154749_1280.png"  id="server-icon"/>
-        <div>
-            <h1 id="server-ip">arrb.aternos.me:55702</h1>
-            <span id="motd">سيرفر جميل</span>
-            <div><span id="player-count">290</span> عدد الاونلاين</div>
-        </div>
-    </div>
-</body>
-
-
-
-
+<!DOCTYPE html>
+<html>
+<head>
 <script>
-    function initServerData(serverIp,serverPort){
-        const serverIpElement = document.getElementById('server-ip');
-        serverIpElement.innerHTML = serverIp;
-        fetch('https://mcapi.us/server/status?ip='+serverIp+'&port='+serverPort)
-        .then(response => response.json())
-        .then(data => handleServerStatus(data));
-  
-        function handleServerStatus(data){
-            if(data.status=='error'){
-                console.log(data.error);
-                return false;
-            }
-            const motd = document.getElementById("motd");
-            motd.innerHTML = data.motd;
+function setCookie(cname,cvalue,exdays) {
+  const d = new Date();
+  d.setTime(d.getTime() + (exdays*24*60*60*1000));
+  let expires = "expires=" + d.toUTCString();
+  document.cookie = cname + "=" + cvalue + ";" + expires + ";path=/";
+}
 
-            const playerCounter = document.getElementById("player-count");
-            playerCounter.innerHTML = data.players.now;
-
-            const logo = document.getElementById("server-icon");
-            logo.src = data.favicon;
-        } 
+function getCookie(cname) {
+  let name = cname + "=";
+  let decodedCookie = decodeURIComponent(document.cookie);
+  let ca = decodedCookie.split(';');
+  for(let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == ' ') {
+      c = c.substring(1);
     }
+    if (c.indexOf(name) == 0) {
+      return c.substring(name.length, c.length);
+    }
+  }
+  return "";
+}
 
-    initServerData("arrb.aternos.me","55702");
+function checkCookie() {
+  let user = getCookie("username");
+  if (user != "") {
+    alert("Welcome again " + user);
+  } else {
+     user = prompt("Please enter your name:","");
+     if (user != "" && user != null) {
+       setCookie("username", user, 30);
+     }
+  }
+}
 </script>
+</head>
+
+<body onload="checkCookie()"></body>
+
+</html>
