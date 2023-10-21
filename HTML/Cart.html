@@ -96,9 +96,7 @@
         const username = getCookie("username");
         const usernameDisplay = document.getElementById("username-display");
         if (username) {
-          usernameDisplay.innerHTML = `${username}`;
-                        <h1>Cart ${username}</h1>
-            <span>Your shopping cart!</span>
+          usernameDisplay.innerHTML = `cart ${username}`;
         } else {
           usernameDisplay.innerHTML = "No username saved.";
         }
