@@ -26,17 +26,14 @@
       
       // Function to display the username if it exists
       function displayUsername() {
-        const username = getCookie("username");
-        const usernameDisplay = document.getElementById("username-display");
+        const username = getCookie("nick");
+        const usernameDisplay = document.getElementById("nick-display");
         if (username) {
-          usernameDisplay.innerHTML = `Your username is: ${username}`;
+          usernameDisplay.innerHTML = `Your username is: ${nick}`;
         } else {
           usernameDisplay.innerHTML = "No username saved.";
         }
       }
-            </div>
-        </form>
-    </section>
       // Function to get the value of a cookie by name
       function getCookie(name) {
         const cookies = document.cookie.split("; ");
