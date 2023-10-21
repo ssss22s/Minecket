@@ -1,45 +1,14 @@
-<div class="signup-w3ls">
-    <div class="signup-agile1">
-        <form action="#" method="post">
-        
-            <div class="form-control">
-                <label class="header">Profile Photo:</label>
-                
-                <input id="image" type="file" name="profile_photo" placeholder="Photo" required="" capture>
-            </div>
-            
-            <div class="form-control">
-                <label class="header">Store Name :</label>
-                <input type="text" id="store_name" name="store_name" placeholder="Store Name" title="Please enter your First Name" required="">
-            </div>
-            
-            <div class="form-control">
-                <label class="header">Store Type :</label>
-                <input type="text" id="store_type" name="store_type" placeholder="Store Type" title="Please enter your Last Name" required="">
-            </div>
-
-            <div class="form-control">
-                <label class="header">Owner Type :</label>
-                <input type="text" id="owner_type" name="owner_type" placeholder="Owner Type" title="Please enter a valid email" required="">
-            </div>
-
-            <div class="form-control">
-                <label class="header">Website :</label>
-                <input type="url" id="website" name="website" placeholder="Website" id="password1" required="">
-            </div>
-
-            <div class="form-control">
-                <label class="header">Contact Number :</label>
-                <input type="text" id="contact_number" name="contact_number" placeholder="Contact Number" required="">
-            </div>
-
-            <div class="form-control">
-                <label class="header">Contact Email :</label>
-                <input type="email" id="contact_email" name="contact_email" placeholder="Contact Email" required="">
-            </div>
-            
-            <input type="submit" class="register" value="Register">
-
-        </form>
-    </div>
-</div>
+<img id="idcardfront" src="images/UploadImgPlaceholder.png" data-type="editable" />
+<script>
+$("#idcardfront").each(function (i, e) {
+var _inputFile = $('<input/>')
+.attr('type', 'file')
+.attr('hidden', 'hidden')
+.attr('id', 'idCardFrontFile')
+.attr('onchange', 'readImage()')
+.attr('data-image-placeholder', e.id)
+.attr('Class', 'hidden');
+ $(e.parentElement).append(_inputFile);
+ $(e).on("click", _inputFile, triggerClick);
+ });
+</script>
