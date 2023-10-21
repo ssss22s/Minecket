@@ -55,28 +55,42 @@
   </body>
 </html>
 
-<form onsubmit="return validateForm()">
-  <label for="mail">Email:</label>
-  <input type="mail" id="mail" name="mail">
-  <button type="submit">Submit</button>
+<html>
+<head>
+<title>Login Page</title>
+</head>
+<body>
+<form name="1stform" method="POST" action="logincookiebased.php">
+<table>
+<tr>
+<td colspan="3">
+<div align="center"><b>Enter ID and Password.</b></div>
+</td>
+</tr>
+<tr>
+<td>
+<div align="left">ID</div>
+</td>
+<td>
+<input type="text" name="username">
+</td>
+</tr>
+<tr>
+<td>
+<div align="left">Password</div>
+</td>
+<td>
+<input type="pass" name="pass">
+</td>
+</tr>
+<tr>
+<td colspan="3">
+<center>
+<input type="submit" name="Submit" value="Login">
+</center>
+</td>
+</tr>
+</table>
 </form>
-<script>
-    function validateForm() {
-        const mail = getCookie("mail");
-        const mail = document.getElementById("mail");
-        if (mail) {
-          mail.innerHTML = `Your username is: ${mail}`;
-        } else {
-          mail.innerHTML = "No username saved.";
-        }
-      }
-function validateForm() {
-  var mail = document.getElementById("mail").value;
-  var pattern = /[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/;
-  if (!pattern.test(email)) {
-    alert("Please enter a valid email address.");
-    return false;
-    
-  }
-}
-</script>
+</body>
+</html>
