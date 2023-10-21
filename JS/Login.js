@@ -19,25 +19,25 @@ const form = document.querySelector("#login-form");
 
 form.addEventListener("submit", function (event) {
 	event.preventDefault();
-	const nickInput = document.querySelector("#nick");
+	const usernameInput = document.querySelector("#username");
 	const confirmInput = document.querySelector("#confirm");
         const mailInput = document.querySelector("#mail");
 	const passwordInput = document.querySelector("#password");
 	
-	const nick = nickInput.value.trim();
+	const username = usernameInput.value.trim();
 	const confirm = confirmInput.value.trim();
 	const mail = mailInput.value.trim();
 	const password = passwordInput.value.trim();
  
-	if(nick.length < 3 || nick.length > 30) {
+	if(username.length < 3 || username.length > 30) {
 	   form.reset();
-	   nickInput.classList.add("input-invalid");
-	   nickInput.setCustomValidity("حط اسم من 3 الئ 30");
-	   nickInput.reportValidity();
+	   usernameInput.classList.add("input-invalid");
+	   usernameInput.setCustomValidity("حط اسم من 3 الئ 30");
+	   usernameInput.reportValidity();
  
 	   setTimeout(() => {
-		  nickInput.classList.remove("input-invalid");
-		  nickInput.setCustomValidity("");
+		  usernameInput.classList.remove("input-invalid");
+		  usernameInput.setCustomValidity("");
 		}, 2000);
 	   return;
 	}
@@ -79,7 +79,7 @@ form.addEventListener("submit", function (event) {
 		return;
 	}
  
-	if(nick !== confirm) {
+	if(username !== confirm) {
 		form.reset();
 		confirmInput.classList.add("input-invalid");
 		confirmInput.setCustomValidity("The values ​​must be the same.");
@@ -96,10 +96,10 @@ form.addEventListener("submit", function (event) {
 	date.setTime(date.getTime() + 12 * 60 * 60 * 1000);
 	const expires = ";expires=" + date.toUTCString() + ";path=/"; 
  
-	document.cookie = "nickname=" + nick + expires;
+	document.cookie = "username=" + username + expires;
 	document.cookie = "logged=true" + expires;
  
-	nickInput.value = "";
+	usernameInput.value = "";
 	confirmInput.value = "";
 	window.location.href = "../HTML/Cart.html";
 });
