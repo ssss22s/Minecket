@@ -1,14 +1,1 @@
-<img id="idcardfront" src="images/UploadImgPlaceholder.png" data-type="editable" />
-<script>
-$("#idcardfront").each(function (i, e) {
-var _inputFile = $('<input/>')
-.attr('type', 'file')
-.attr('hidden', 'hidden')
-.attr('id', 'idCardFrontFile')
-.attr('onchange', 'readImage()')
-.attr('data-image-placeholder', e.id)
-.attr('Class', 'hidden');
- $(e.parentElement).append(_inputFile);
- $(e).on("click", _inputFile, triggerClick);
- });
-</script>
+<img id="image" src="default.png" alt="profile-image" />
