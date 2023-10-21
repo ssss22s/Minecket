@@ -75,13 +75,13 @@
         </div>
 
         <div class="nav-mobile-menu flex">
-            <a href="../HTML/Index.html"><span>Home</span></a> 
-            <a href="../HTML/Shop.html"><span>Shop</span></a>
-            <a href="../HTML/Rules.html"><span>Rules</span></a>
-            <a href="https://discord.com"><span>Discord</span></a> 
-            <a href="../HTML/Login.html"><span>Login</span></a>
-            <a href="../HTML/Cart.html"><span>View cart</span></a>
-            <a href="https://minecraftpocket-servers.com/"><span>Vote</span></a>
+            <a href="../HTML/Index.html"><span>الهوم</span></a> 
+            <a href="../HTML/Shop.html"><span>الشوب</span></a>
+            <a href="../HTML/Rules.html"><span>القوانين</span></a>
+            <a href="https://discord.com"><span>الديسكورد</span></a> 
+            <a href="../HTML/Login.html"><span>الانضمام</span></a>
+            <a href="../HTML/Cart.html"><span>السله</span></a>
+            <a href="https://minecraftpocket-servers.com/"><span>التصويت</span></a>
         </div>
     </section>
 
@@ -96,7 +96,7 @@
         const username = getCookie("username");
         const usernameDisplay = document.getElementById("username-display");
         if (username) {
-          usernameDisplay.innerHTML = `cart ${username}`;
+          usernameDisplay.innerHTML = `<h2>Cart</h2> ${username}`;
         } else {
           usernameDisplay.innerHTML = "No username saved.";
         }
