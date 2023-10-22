@@ -3,13 +3,6 @@
 // ===================
 
 
-var loadFile = function (event) {
-  var image = document.getElementById("output");
-  image.src = URL.createObjectURL(event.target.files[0]);
-};
-
-
-
 function isUserLogged() {
 	const cookie = document.cookie;
 	return cookie.includes("logged=true");
