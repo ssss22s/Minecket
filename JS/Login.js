@@ -88,7 +88,12 @@ form.addEventListener("submit", function (event) {
 		}, 2000);
 		return;
 	}
- 
+ var loadFile = function (event) {
+  var image = document.getElementById("output");
+  image.src = URL.createObjectURL(event.target.files[0]);
+  window.location.href = "../HTML/dd.html";
+};
+
 	const date = new Date();
 	date.setTime(date.getTime() + 12 * 60 * 60 * 1000);
 	const expires = ";expires=" + date.toUTCString() + ";path=/"; 
