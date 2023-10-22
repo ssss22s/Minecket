@@ -1,19 +1,8 @@
-<main class="container"><a class="card gradient-wrap" href="#">
-    <div class="-background-img"></div>
-    <img class="-img" crossorigin="anonymous" src="https://farm8.staticflickr.com/7304/10120866274_6db9bb97d6_z.jpg" />
-    <h2 class="-title">
-      Awesome Title
-    </h2>
-    <p class="-date">
-      18/12/2016
-    </p>
-  </a><a class="card gradient-wrap" href="#">
-    <div class="-background-img"></div>
-    <img class="-img" crossorigin="anonymous" src="https://farm9.staticflickr.com/8231/8559234112_bbce5be089_z.jpg" />
-    <h2 class="-title">
-      Awesome Title
-    </h2>
-    <p class="-date">
-      26/09/2016
-    </p>
-  </a></main>
+<div class="profile-pic">
+  <label class="-label" for="file">
+    <span class="glyphicon glyphicon-camera"></span>
+    <span>Change Image</span>
+  </label>
+  <input id="file" type="file" onchange="loadFile(event)" />
+  <img src="https://cdn.pixabay.com/photo/2017/08/06/21/01/louvre-2596278_960_720.jpg" id="output" width="200" />
+</div>
