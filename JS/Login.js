@@ -91,7 +91,6 @@ form.addEventListener("submit", function (event) {
  var loadFile = function (event) {
   var image = document.getElementById("output");
   image.src = URL.createObjectURL(event.target.files[0]);
-  window.location.href = "../HTML/dd.html";
 };
 
 	const date = new Date();
