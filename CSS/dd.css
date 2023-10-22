@@ -1,8 +1,25 @@
+// Vars
+//---------------------------------------------
+$background-color: #333;
+$card-background-color: #ffffff;
+$card-size: 15em;
+$border-bottom-radius: 1.5em;
+$main-font: "Abril Fatface", cursive;
+$font-color: #000000;
+$box-shadow-color: rgba(0, 0, 0, 0.4);
+$transition: all 0.2s linear;
+$card-border: 1px solid rgba(0, 0, 0, 0.3);
+$img-border: 0.5em solid rgba(255, 255, 255, 0.2);
+
+// General
+//---------------------------------------------
 body {
-  background-color: #333;
+  background-color: $background-color;
   padding: 2em;
 }
 
+// Container
+//---------------------------------------------
 .container {
   display: grid;
   grid-template-columns: repeat(3, auto);
@@ -13,6 +30,8 @@ body {
   margin: 0 auto;
 }
 
+// Card
+//---------------------------------------------
 .card {
   position: relative;
   display: table;
@@ -20,56 +39,59 @@ body {
   z-index: 2;
   overflow: hidden;
   text-decoration: none;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 15em;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  background-color: #ffffff;
-  border-top-right-radius: 15em;
-  border-top-left-radius: 15em;
-  border-bottom-right-radius: 1.5em;
-  border-bottom-left-radius: 1.5em;
-  transition: all 0.2s linear;
-  color: #000000;
-  font-family: "Abril Fatface", cursive;
-}
-.card:hover {
-  border-color: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  transform: scale(1.05);
-  transition: all 0.2s linear;
-}
-.card:hover .-img {
-  border: 0.5em solid rgba(255, 255, 255, 0.2);
-  transition: all 0.2s linear;
-}
-.card .-background-img {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  bottom: -10px;
-  left: -10px;
-  z-index: -1;
-  filter: blur(5px);
-  overflow: hidden;
-  background-size: cover;
-  opacity: 0.5;
-}
-.card .-img {
-  object-fit: cover;
-  border: 0.5em solid transparent;
-  width: 15em;
-  height: 15em;
-  border-radius: 15em;
-  transition: all 0.2s linear;
-}
-.card .-title {
-  text-align: center;
-}
-.card .-date {
-  margin: auto;
-  color: rgba(0, 0, 0, 0.3);
-  background-color: rgba(255, 255, 255, 0.4);
-  display: table;
-  padding: 0.3em 1em;
-  border-radius: 20px;
+  border: $card-border;
+  width: $card-size;
+  box-shadow: 0 0 5px $box-shadow-color;
+  background-color: $card-background-color;
+  border-top-right-radius: $card-size;
+  border-top-left-radius: $card-size;
+  border-bottom-right-radius: $border-bottom-radius;
+  border-bottom-left-radius: $border-bottom-radius;
+  transition: $transition;
+  color: $font-color;
+  font-family: $main-font;
+
+  &:hover {
+    border-color: rgba(0, 0, 0, 0.4);
+    box-shadow: 0 0 20px $box-shadow-color;
+    transform: scale(1.05);
+    transition: $transition;
+
+    .-img {
+      border: $img-border;
+      transition: $transition;
+    }
+  }
+
+  .-background-img {
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    left: -10px;
+    z-index: -1;
+    filter: blur(5px);
+    overflow: hidden;
+    background-size: cover;
+    opacity: 0.5;
+  }
+  .-img {
+    object-fit: cover;
+    border: 0.5em solid transparent;
+    width: $card-size;
+    height: $card-size;
+    border-radius: $card-size;
+    transition: $transition;
+  }
+  .-title {
+    text-align: center;
+  }
+  .-date {
+    margin: auto;
+    color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(255, 255, 255, 0.4);
+    display: table;
+    padding: 0.3em 1em;
+    border-radius: 20px;
+  }
 }
