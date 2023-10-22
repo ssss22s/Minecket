@@ -3,7 +3,15 @@
 // ===================
 
 
+#imageUpload
+{
+    display: none;
+}
 
+#profileImage
+{
+    cursor: pointer;
+}
 
 
 function isUserLogged() {
