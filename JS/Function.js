@@ -1,10 +1,6 @@
 // ==================
 //      COPY IP
 // ==================
-var loadFile = function (event) {
-  var image = document.getElementById("output");
-  image.src = URL.createObjectURL(event.target.files[0]);
-};
 
 
 const copyBtn = document.getElementById("copy-btn");
