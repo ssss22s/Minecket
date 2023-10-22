@@ -1,9 +1,4 @@
-window.addEventListener("load", function () {
-  $(".card").each(function () {
-    var imgURL = $(this).find(".-img").attr("src");
-
-    $(this)
-      .find(".-background-img")
-      .css("background-image", "url(" + imgURL + ")");
-  });
-});
+var loadFile = function (event) {
+  var image = document.getElementById("output");
+  image.src = URL.createObjectURL(event.target.files[0]);
+};
