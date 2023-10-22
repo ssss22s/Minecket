@@ -1,75 +1,53 @@
-body {
-  background-color: #333;
-  padding: 2em;
-}
-
-.container {
-  display: grid;
-  grid-template-columns: repeat(3, auto);
-  grid-template-rows: repeat(4, auto);
-  grid-gap: 2em;
-  width: 80%;
+.profile-pic {
+  color: transparent;
+  transition: all 0.3s ease;
+  display: flex;
   justify-content: center;
-  margin: 0 auto;
+  align-items: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+.profile-pic input {
+  display: none;
+}
+.profile-pic img {
+  position: absolute;
+  object-fit: cover;
+  width: 165px;
+  height: 165px;
+  box-shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+  border-radius: 100px;
+  z-index: 0;
+}
+.profile-pic .-label {
+  cursor: pointer;
+  height: 165px;
+  width: 165px;
+}
+.profile-pic:hover .-label {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 10000;
+  color: #fafafa;
+  transition: background-color 0.2s ease-in-out;
+  border-radius: 100px;
+  margin-bottom: 0;
+}
+.profile-pic span {
+  display: inline-flex;
+  padding: 0.2em;
+  height: 2em;
 }
 
-.card {
-  position: relative;
-  display: table;
-  padding: 1em;
-  z-index: 2;
-  overflow: hidden;
+body {
+  height: 100vh;
+  background-color: #191815;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+body a:hover {
   text-decoration: none;
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  width: 15em;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.4);
-  background-color: #ffffff;
-  border-top-right-radius: 15em;
-  border-top-left-radius: 15em;
-  border-bottom-right-radius: 1.5em;
-  border-bottom-left-radius: 1.5em;
-  transition: all 0.2s linear;
-  color: #000000;
-  font-family: "Abril Fatface", cursive;
-}
-.card:hover {
-  border-color: rgba(0, 0, 0, 0.4);
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.4);
-  transform: scale(1.05);
-  transition: all 0.2s linear;
-}
-.card:hover .-img {
-  border: 0.5em solid rgba(255, 255, 255, 0.2);
-  transition: all 0.2s linear;
-}
-.card .-background-img {
-  position: absolute;
-  top: -10px;
-  right: -10px;
-  bottom: -10px;
-  left: -10px;
-  z-index: -1;
-  filter: blur(5px);
-  overflow: hidden;
-  background-size: cover;
-  opacity: 0.5;
-}
-.card .-img {
-  object-fit: cover;
-  border: 0.5em solid transparent;
-  width: 15em;
-  height: 15em;
-  border-radius: 15em;
-  transition: all 0.2s linear;
-}
-.card .-title {
-  text-align: center;
-}
-.card .-date {
-  margin: auto;
-  color: rgba(0, 0, 0, 0.3);
-  background-color: rgba(255, 255, 255, 0.4);
-  display: table;
-  padding: 0.3em 1em;
-  border-radius: 20px;
 }
