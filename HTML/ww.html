@@ -3,10 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>الملف الشخصي</title>
-    <!-- أي أنماط CSS هنا -->
-</head>
-<body>
-    <!-- محتوى الصفحة -->
     <style>
       // الأكواد المضافة
       @mixin object-center {
@@ -68,7 +64,8 @@
 
       // نهاية الأكواد المضافة
     </style>
-
+</head>
+<body>
     <h1>الملف الشخصي</h1>
 
     <h2>المعلومات الحالية:</h2>
@@ -80,7 +77,7 @@
         <span>Change Image</span>
       </label>
       <input id="new-image" type="file" accept="image/*" onchange="loadFile(event)" />
-      <img src="https://cdn.pixabay.com/photo/2017/08/06/21/01/louvre-2596278_960_720.jpg" id="output" width="200" />
+      <img id="output" width="200" />
     </div>
 
     <h2>تغيير المعلومات:</h2>
@@ -98,6 +95,18 @@
         const profileImage = document.getElementById("output");
         const profileForm = document.getElementById("profile-form");
 
+        // استرجاع البيانات من Local Storage
+        const savedName = localStorage.getItem("profileName");
+        const savedImage = localStorage.getItem("profileImage");
+
+        if (savedName) {
+            currentName.textContent = savedName;
+        }
+
+        if (savedImage) {
+            profileImage.src = savedImage;
+        }
+
         function loadFile(event) {
           profileImage.src = URL.createObjectURL(event.target.files[0]);
         }
@@ -109,9 +118,22 @@
 
             if (newName) {
                 currentName.textContent = newName;
+                // حفظ الاسم في Local Storage
+                localStorage.setItem("profileName", newName);
             }
 
             nameInput.value = "";
+        });
+        
+        // حفظ الصورة المحدثة في Local Storage
+        profileImage.addEventListener("load", function () {
+            const canvas = document.createElement('canvas');
+            const context = canvas.getContext('2d');
+            canvas.width = this.naturalWidth;
+            canvas.height = this.naturalHeight;
+            context.drawImage(this, 0, 0);
+            const image = canvas.toDataURL('image/jpeg', 0.9);
+            localStorage.setItem("profileImage", image);
         });
     </script>
 </body>
