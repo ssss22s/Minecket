@@ -1,10 +1,20 @@
-<script>
-    function isUserLogged() {
-        const cookie = document.cookie;
-        return cookie.includes("logged=true");
-    }
+document.addEventListener('DOMContentLoaded', function() {
+    const loginForm = document.getElementById('login-form');
+    const errorMessage = document.getElementById('error-message');
 
-    if (isUserLogged()) {
-        window.location.href = "Cart.html"; // توجيه المستخدم إلى صفحة دخوله
-    }
-</script>
+    loginForm.addEventListener('submit', function(event) {
+        event.preventDefault();
+
+        const username = loginForm.username.value;
+        const password = loginForm.password.value;
+
+        // قم بتحقق من معلومات تسجيل الدخول هنا
+        if (username === 'admin' && password === 'password') {
+            // عملية تسجيل الدخول ناجحة
+            window.location.href = 'dashboard.html'; // قم بتوجيه المستخدم إلى صفحة الداشبورد
+        } else {
+            // فشلت عملية تسجيل الدخول
+            errorMessage.textContent = 'اسم المستخدم أو كلمة المرور غير صحيحة.';
+        }
+    });
+});
