@@ -11,24 +11,6 @@ function isUserLogged() {
 if(isUserLogged()) {
 	window.location.href = "../HTML/Cart.html";
 }
- const form = document.getElementById('signup-form');
-
-form.addEventListener('submit', function (event) {
-    event.preventDefault();
-    const newUsername = document.getElementById('new-username').value;
-    const newConfirm = document.getElementById('new-confirm').value;
-    const newMail = document.getElementById('new-mail').value;
-    const newPassword = document.getElementById('new-password').value;
-
-    // يمكنك هنا إجراء التحقق من البيانات وإضافة المستخدم الجديد إلى قاعدة البيانات
-    // على سبيل المثال:
-    // - التحقق من أن اسم المستخدم غير مستخدم بالفعل
-    // - التحقق من تطابق حقول التأكيد
-    // - حفظ البيانات في قاعدة البيانات
-
-    alert('تم إنشاء حساب جديد ويمكنك الآن تسجيل الدخول.');
-    // يمكنك هنا توجيه المستخدم إلى صفحة تسجيل الدخول أو القيام بإجراء آخر.
-});
 
 const form = document.querySelector("#login-form");
 
