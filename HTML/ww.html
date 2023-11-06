@@ -2,80 +2,43 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Login</title>
+    <title>نموذج إنشاء حساب وتسجيل الدخول</title>
 </head>
 <body>
-    <h1>Login</h1>
-    <form id="login-form">
-        <div>
-            <label for="username">Username:</label>
-            <input type="text" id="username" name="username" required>
-        </div>
-        <div>
-            <label for="password">Password:</label>
-            <input type="password" id="password" name="password" required>
-        </div>
-        <div>
-            <button type="submit">Login</button>
-        </div>
-    </form>
+    <div id="signup-form">
+        <h2>إنشاء حساب</h2>
+        <form id="signup-form">
+            <label for="signup-username">اسم المستخدم:</label>
+            <input type="text" id="signup-username" required>
+            <label for="signup-password">كلمة المرور:</label>
+            <input type="password" id="signup-password" required>
+            <button type="submit">إنشاء حساب</button>
+        </form>
+    </div>
 
-    <h1>Sign Up</h1>
-    <form id="signup-form">
-        <div>
-            <label for="new-username">New Username:</label>
-            <input type="text" id="new-username" name="new-username" required>
-        </div>
-        <div>
-            <label for="new-password">New Password:</label>
-            <input type="password" id="new-password" name="new-password" required>
-        </div>
-        <div>
-            <button type="submit">Sign Up</button>
-        </div>
-    </form>
-    
-<script>
-    let userDatabase = []; // يمكنك استخدام مصفوفة لتخزين معلومات الحسابات
+    <div id="login-form">
+        <h2>تسجيل الدخول</h2>
+        <form id="login-form">
+            <label for="login-username">اسم المستخدم:</label>
+            <input type="text" id="login-username" required>
+            <label for="login-password">كلمة المرور:</label>
+            <input type="password" id="login-password" required>
+            <button type="submit">تسجيل الدخول</button>
+        </form>
+    </div>
 
-    const loginForm = document.getElementById('login-form');
-    const signupForm = document.getElementById('signup-form');
+    <button id="toggle-form-button">تبديل بين النموذجين</button>
 
-    loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+    <script>
+        const toggleButton = document.querySelector("#toggle-form-button");
+        const loginForm = document.querySelector("#login-form");
+        const signupForm = document.querySelector("#signup-form");
 
-        const user = userDatabase.find((user) => user.username === username && user.password === password);
-
-        if (user) {
-            alert('تم تسجيل الدخول بنجاح!');
-        } else {
-            alert('فشل تسجيل الدخول. المعلومات غير صحيحة.');
-        }
-    });
- <script>
-        const fs = require('fs'); // استيراد وحدة fs للتعامل مع الملفات
-        const path = require('path'); // استيراد وحدة path للتعامل مع المسارات
-
-        let userDatabase = []; // ستحتوي على معلومات الحسابات
-
-        // قراءة ملف accounts.json إذا كان موجودًا
-        const accountsFilePath = path.join(__dirname, 'data.json'); // تحديد مسار الملف
-        if (fs.existsSync(accountsFilePath)) {
-            const accountsData = fs.readFileSync(accountsFilePath, 'utf-8');
-            userDatabase = JSON.parse(accountsData);
-        }
-    
-    signupForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const newUsername = document.getElementById('new-username').value;
-        const newPassword = document.getElementById('new-password').value;
-
-        // قم بإضافة المستخدم الجديد إلى قاعدة البيانات
-        userDatabase.push({ username: newUsername, password: newPassword });
-        
-        alert('تم إنشاء حساب جديد ويمكنك الآن تسجيل الدخول.');
-    });
-</script>
+        toggleButton.addEventListener("click", function (event) {
+            event.preventDefault();
+            loginForm.style.display = loginForm.style.display === 'none' ? 'block' : 'none';
+            signupForm.style.display = signupForm.style.display === 'none' ? 'block' : 'none';
+        });
+    </script>
+</body>
+</html>
