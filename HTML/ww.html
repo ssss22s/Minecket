@@ -66,10 +66,11 @@
     </style>
 </head>
 <body>
+    <p id="username-display">No username saved.</p>
     <h1>الملف الشخصي</h1>
 
     <h2>المعلومات الحالية:</h2>
-    <p id="username-display"></p>
+    <p>الاسم: <span id="current-name">John Doe</span></p>
     <p>الصورة:</p>
     <div class="profile-pic">
         <label class="-label" for="new-image">
@@ -80,32 +81,60 @@
         <img src="https://cdn.pixabay.com/photo/2017/08/06/21/01/louvre-2596278_960_720.jpg" id="output" width="200" />
     </div>
 
-    <h2>إدارة الاسم الشخصي:</h2>
-    <input type="text" id="username" placeholder="الاسم الجديد" required>
-    <button type="button" onclick="saveUsername()">حفظ الاسم الجديد</button>
-    <button type="button" onclick="deleteUsername()">حذف الاسم الشخصي</button>
+    <h2>تغيير المعلومات:</h2>
+    <form id="profile-form">
+        <label for="new-name">الاسم الجديد:</label>
+        <input type="text" id="new-name" placeholder="الاسم الجديد" required>
+
+        <button type="submit">حفظ التغييرات</button>
+    </form>
+
+    <p id="username-display">No username saved.</p> <!-- عنصر لعرض اسم المستخدم -->
 
     <script>
+        const nameInput = document.getElementById("new-name");
+        const imageInput = document.getElementById("new-image");
+        const currentName = document.getElementById("current-name");
         const profileImage = document.getElementById("output");
+        const profileForm = document.getElementById("profile-form");
+        const usernameDisplay = document.getElementById("username-display");
+
+        // تحقق من وجود بيانات مخزنة في Local Storage
+        const storedName = localStorage.getItem("name");
+        if (storedName) {
+            currentName.textContent = storedName;
+        }
+
+        // تحقق من وجود صورة مخزنة في Local Storage
+        const storedImage = localStorage.getItem("image");
+        if (storedImage) {
+            profileImage.src = storedImage;
+        }
 
         function loadFile(event) {
             profileImage.src = URL.createObjectURL(event.target.files[0]);
         }
 
-        function saveUsername() {
-            const username = document.getElementById("username").value;
-            document.cookie = `username=${username}; expires=${getExpirationDate(7)}`;
-            displayUsername();
+        // استجابة لتقديم النموذج
+        profileForm.addEventListener("submit", function(event) {
+            event.preventDefault();
+            const newName = nameInput.value;
+
+            if (newName) {
+                currentName.textContent = newName;
+                // احفظ الاسم في Local Storage
+                localStorage.setItem("name", newName);
+            }
+
+            nameInput.value = "";
+
+            // احفظ الصورة المحدثة في Local Storage
+            localStorage.setItem("image", profileImage.src);
         }
 
-        function deleteUsername() {
-            document.cookie = `username=; expires=${getExpirationDate(-1)}`;
-            displayUsername();
-        }
-
+        // Function to display the username if it exists
         function displayUsername() {
             const username = getCookie("username");
-            const usernameDisplay = document.getElementById("username-display");
             if (username) {
                 usernameDisplay.innerHTML = `Your username is: ${username}`;
             } else {
@@ -113,16 +142,10 @@
             }
         }
 
-        // تحقق من وجود بيانات مخزنة في Local Storage
-        const storedName = localStorage.getItem("name");
-        if (storedName) {
-            displayUsername();
-        }
+        displayUsername();
     </script>
 </body>
 </html>
-بهذا الشكل، يمكن للمستخدم حفظ أو حذف اسم المستخدم، وسيتم عرض الاسم المحفوظ أو رسالة تنبيه في الصفحة.
-
 
 
 
