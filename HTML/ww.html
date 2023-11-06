@@ -1,15 +1,15 @@
-<script>
-    const form = document.querySelector("#login-form");
-    form.addEventListener("submit", function (event) {
-        event.preventDefault();
-        const usernameInput = document.querySelector("#username").value;
-        const passwordInput = document.querySelector("#password").value;
-        
-        // قم بتنفيذ الاستدعاء إلى خادم للتحقق من اسم المستخدم وكلمة المرور
-        // إذا كانت المعلومات صحيحة، قم بتوجيه المستخدم إلى صفحة أخرى.
-        // إذا كانت غير صحيحة، قم بعرض رسالة خطأ.
-
-        // مثال على توجيه المستخدم بناءً على النجاح:
-        window.location.href = "dashboard.html";
-    });
-</script>
+<!-- في صفحة تسجيل الدخول (login.html) -->
+<form id="login-form">
+    <!-- حقول تسجيل الدخول -->
+    <div class="form-group">
+        <label for="username">اسم المستخدم:</label>
+        <input type="text" id="username" name="username" required>
+    </div>
+    <div class="form-group">
+        <label for="password">كلمة المرور:</label>
+        <input type="password" id="password" name="password" required>
+    </div>
+    <button type="submit">تسجيل الدخول</button>
+</form>
+<!-- زر "انتقال إلى صفحة تسجيل الحساب" -->
+<p>ليس لديك حساب؟ <a href="dd.html">سجل الآن</a></p>
