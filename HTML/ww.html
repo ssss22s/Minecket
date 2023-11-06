@@ -55,7 +55,19 @@
             alert('فشل تسجيل الدخول. المعلومات غير صحيحة.');
         }
     });
+ <script>
+        const fs = require('fs'); // استيراد وحدة fs للتعامل مع الملفات
+        const path = require('path'); // استيراد وحدة path للتعامل مع المسارات
 
+        let userDatabase = []; // ستحتوي على معلومات الحسابات
+
+        // قراءة ملف accounts.json إذا كان موجودًا
+        const accountsFilePath = path.join(__dirname, 'accounts.json'); // تحديد مسار الملف
+        if (fs.existsSync(accountsFilePath)) {
+            const accountsData = fs.readFileSync(accountsFilePath, 'utf-8');
+            userDatabase = JSON.parse(accountsData);
+        }
+    
     signupForm.addEventListener('submit', function (event) {
         event.preventDefault();
         const newUsername = document.getElementById('new-username').value;
