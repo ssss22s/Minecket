@@ -1,15 +1,45 @@
-<!-- في صفحة تسجيل الدخول (login.html) -->
-<form id="login-form">
-    <!-- حقول تسجيل الدخول -->
-    <div class="form-group">
-        <label for="username">اسم المستخدم:</label>
-        <input type="text" id="username" name="username" required>
-    </div>
-    <div class="form-group">
-        <label for="password">كلمة المرور:</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">تسجيل الدخول</button>
-</form>
-<!-- زر "انتقال إلى صفحة تسجيل الحساب" -->
-<p>ليس لديك حساب؟ <a href="dd.html">سجل الآن</a></p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+</head>
+<body>
+    <h1>Login</h1>
+    <form id="login-form">
+        <div>
+            <label for="username">Username:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div>
+            <label for="password">Password:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <div>
+            <button type="submit">Login</button>
+        </div>
+    </form>
+
+    <script>
+        const form = document.getElementById('login-form');
+
+        form.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            // قم بإجراء عمليات التحقق من تسجيل الدخول هنا باستخدام JavaScript
+            // يمكنك إرسال البيانات إلى الخادم والتحقق من صحتها
+
+            if (username === 'user' && password === 'password') {
+                // إذا كان تسجيل الدخول صحيحًا، قم بتوجيه المستخدم إلى صفحة أخرى مثلاً
+                // window.location.href = 'dashboard.html';
+                alert('تم تسجيل الدخول بنجاح!');
+            } else {
+                alert('فشل تسجيل الدخول. المعلومات غير صحيحة.');
+            }
+        });
+    </script>
+</body>
+</html>
