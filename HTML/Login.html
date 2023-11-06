@@ -86,15 +86,23 @@
     </section>
 
     <!--=== Login Section ===-->
-      <section class="login">
+    <section class="login">
         <form id="login-form">
             <div class="login-form-content">
                 <h2>الانضمام</h2>
                 <label for="username">اسمك بالسيرفر ؟ :</label>
                 <input type="text" id="username" placeholder="اكتب اسمك بالسيرفر" required>
+
+                <label for="confirm">التاكيد :</label>
+                <input type="text" id="confirm" placeholder="اكتب اسمك مره ثانيه للتاكيد" required>    
+                
+                 <label for="mail">الايميل :</label>
+                <input type="email" id="mail" placeholder="اكتب الايميل" required>
+                
                 <label for="password">الباسورد :</label>
-                <input type="password" id="password" placeholder="اكتب الباسورد" required>
-                <button type="submit">الدخول</button>
+                <input type="password" id="password" placeholder="اكتب الباسورد" required>           
+                     <label>       
+                <button type="submit">التسجيل</button>
             </div>
         </form>
     </section>
@@ -130,6 +138,3 @@
     <script src="../JS/General.js"></script>
 </body>
 </html>
-
-
-
