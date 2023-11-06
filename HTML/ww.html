@@ -4,7 +4,76 @@
     <meta charset="UTF-8">
     <title>الملف الشخصي</title>
     <style>
-        /* إضافة أي تنسيقات CSS حسب الحاجة */
+        @mixin object-center {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        $circleSize: 165px;
+        $radius: 100px;
+        $shadow: 0 0 10px 0 rgba(255, 255, 255, 0.35);
+        $fontColor: rgb(250, 250, 250);
+
+        .profile-pic {
+            color: transparent;
+            transition: all 0.3s ease;
+            @include object-center;
+            position: relative;
+            transition: all 0.3s ease;
+
+            input {
+                display: none;
+            }
+
+            img {
+                position: absolute;
+                object-fit: cover;
+                width: $circleSize;
+                height: $circleSize;
+                box-shadow: $shadow;
+                border-radius: $radius;
+                z-index: 0;
+            }
+
+            .-label {
+                cursor: pointer;
+                height: $circleSize;
+                width: $circleSize;
+            }
+
+            &:hover {
+                .-label {
+                    @include object-center;
+                    background-color: rgba(0, 0, 0, 0.8);
+                    z-index: 10000;
+                    color: $fontColor;
+                    transition: background-color 0.2s ease-in-out;
+                    border-radius: $radius;
+                    margin-bottom: 0;
+                }
+            }
+
+            span {
+                display: inline-flex;
+                padding: 0.2em;
+                height: 2em;
+            }
+        }
+
+        /////////////////////////
+        // Body styling 🐾
+        /////////////////////////
+
+        body {
+            height: 100vh;
+            background-color: rgb(25, 24, 21);
+            @include object-center;
+
+            a:hover {
+                text-decoration: none;
+            }
+        }
     </style>
 </head>
 <body>
@@ -13,15 +82,18 @@
     <h2>المعلومات الحالية:</h2>
     <p>الاسم: <span id="current-name">John Doe</span></p>
     <p>الصورة:</p>
-    <img src="default-profile-image.jpg" id="profile-image" alt="الصورة الشخصية" width="150">
+    <div class="profile-pic">
+        <label class="-label" for="new-image">
+            <img src="default-profile-image.jpg" id="profile-image" alt="الصورة الشخصية">
+        </label>
+        <input type="file" id="new-image" accept="image/*">
+        <span>تغيير الصورة</span>
+    </div>
 
     <h2>تغيير المعلومات:</h2>
     <form id="profile-form">
         <label for="new-name">الاسم الجديد:</label>
         <input type="text" id="new-name" placeholder="الاسم الجديد" required>
-
-        <label for="new-image">اختر صورة جديدة:</label>
-        <input type="file" id="new-image" accept="image/*">
 
         <button type="submit">حفظ التغييرات</button>
     </form>
