@@ -35,38 +35,36 @@
             <button type="submit">Sign Up</button>
         </div>
     </form>
+    
+<script>
+    let userDatabase = []; // يمكنك استخدام مصفوفة لتخزين معلومات الحسابات
 
-    <script>
-        const loginForm = document.getElementById('login-form');
-        const signupForm = document.getElementById('signup-form');
+    const loginForm = document.getElementById('login-form');
+    const signupForm = document.getElementById('signup-form');
 
-        loginForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
+    loginForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const username = document.getElementById('username').value;
+        const password = document.getElementById('password').value;
 
-            // قم بإجراء عمليات التحقق من تسجيل الدخول هنا باستخدام JavaScript
-            // يمكنك إرسال البيانات إلى الخادم والتحقق من صحتها
+        const user = userDatabase.find((user) => user.username === username && user.password === password);
 
-            if (username === 'user' && password === 'password') {
-                // إذا كان تسجيل الدخول صحيحًا، قم بتوجيه المستخدم إلى صفحة أخرى مثلاً
-                // window.location.href = 'dashboard.html';
-                alert('تم تسجيل الدخول بنجاح!');
-            } else {
-                alert('فشل تسجيل الدخول. المعلومات غير صحيحة.');
-            }
-        });
+        if (user) {
+            alert('تم تسجيل الدخول بنجاح!');
+        } else {
+            alert('فشل تسجيل الدخول. المعلومات غير صحيحة.');
+        }
+    });
 
-        signupForm.addEventListener('submit', function (event) {
-            event.preventDefault();
-            const newUsername = document.getElementById('new-username').value;
-            const newPassword = document.getElementById('new-password').value;
+    signupForm.addEventListener('submit', function (event) {
+        event.preventDefault();
+        const newUsername = document.getElementById('new-username').value;
+        const newPassword = document.getElementById('new-password').value;
 
-            // قم بإجراء عمليات تسجيل الدخول هنا باستخدام JavaScript
-            // يمكنك إرسال البيانات إلى الخادم لإنشاء حساب جديد
+        // قم بإضافة المستخدم الجديد إلى قاعدة البيانات
+        userDatabase.push({ username: newUsername, password: newPassword });
 
-            alert('تم إنشاء حساب جديد بنجاح!');
-        });
-    </script>
-</body>
-</html>
+        alert('تم إنشاء حساب جديد ويمكنك الآن تسجيل الدخول.');
+    });
+</script>
+
