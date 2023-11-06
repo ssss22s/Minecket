@@ -1,53 +1,25 @@
-window.URL = window.URL || window.webkitURL;
-blob = true && window.URL;
-function readImg(file, previewImg, width, height, border, hid)
-{
-  var hid1 = document.getElementById(hid);
-  var reader = new FileReader();
-  reader.addEventListener("load", function(){
-    var image = new Image();
-    image.addEventListener("load", function(){
-      Math.round(file.size / 1024) + "KB";
-      previewImg.innerHTML="";
-      previewImg.appendChild(this);
-      if(blob)
-      {
-     window.URL.revokeObjectURL(image.src); 
-      }  
-    });
-    hid1.value = blob ? window.URL.createObjectURL(file) : reader.result;
-      image.src = blob ? window.URL.createObjectURL(file) : reader.result;
-      image.style.width = width + "px";
-      image.style.height = height + "px";
-      image.style.borderRadius = border + "%";
-  });
-  reader.readAsDataURL(file);
-}
+const form = document.querySelector("#signup-form");
 
-function fillImg(fileupload, viewImage, hidImgVal)
-{
-  var fileUploadId = document.getElementById(fileupload);
-  var viewImageId = document.getElementById(viewImage);
-  var files = fileUploadId.files;
-  var error = "";
-  if(!files)
-  {
-    error += "File Upload Not Supported By  Your Browser";
-  }
-  
-  if(files && files[0])
-  {
-      for(var i=0; i<files.length; i++)
-      {
-        var file = files[i];    
-        if ((/\.(png|jpeg|jpg|gif)$/i).test(file.name)) {
-                readImg(file, viewImageId, 50, 50, 50, hidImgVal);
-            } else {
-                errors += file.name + " Unsupported Image extension\n";
-            }
-      }
-  }
-  if (errors) {
-    alert(errors);
-   }
-}
+form.addEventListener("submit", function (event) {
+    event.preventDefault();
+    const usernameInput = document.querySelector("#username");
+    const confirmInput = document.querySelector("#confirm");
+    const mailInput = document.querySelector("#mail");
+    const passwordInput = document.querySelector("#password");
+
+    const username = usernameInput.value.trim();
+    const confirm = confirmInput.value.trim();
+    const mail = mailInput.value.trim();
+    const password = passwordInput.value.trim();
+
+    // Add validation logic for username, email, and password (similar to what you did for login)
+
+    if (/* Validation checks */) {
+        // Handle invalid data and show error messages
+        return;
+    }
+
+    // If data is valid, you can save the user information to your server or wherever you want
+
+    // Redirect to a success page or perform other actions
+});
