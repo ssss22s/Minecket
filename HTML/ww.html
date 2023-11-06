@@ -82,58 +82,60 @@
 
     <h2>تغيير المعلومات:</h2>
     <form id="profile-form">
-        <label for="username">الاسم الجديد:</label>
-        <input type="text" id="username" placeholder="الاسم الجديد" required>
+        <label for="new-username">الاسم الجديد:</label>
+        <input type="text" id="new-username" placeholder="الاسم الجديد" required>
 
         <button type="submit">حفظ التغييرات</button>
     </form>
 
+    <div id="username-display">
+        Your username is:
+    </div>
+
     <script>
-        const nameInput = document.getElementById("new-name");
+        const usernameInput = document.getElementById("new-username");
         const imageInput = document.getElementById("new-image");
-        const currentName = document.getElementById("current-name");
         const profileImage = document.getElementById("output");
         const profileForm = document.getElementById("profile-form");
 
-        // استرجاع البيانات من Local Storage
-        const savedName = localStorage.getItem("profileName");
-        const savedImage = localStorage.getItem("profileImage");
-
-        if (savedName) {
-            currentName.textContent = savedName;
-        }
-
-        if (savedImage) {
-            profileImage.src = savedImage;
-        }
-
         function loadFile(event) {
-          profileImage.src = URL.createObjectURL(event.target.files[0]);
+            profileImage.src = URL.createObjectURL(event.target.files[0]);
         }
+
+        // Function to save the username in a cookie
+        function saveUsername() {
+            const username = usernameInput.value;
+            document.cookie = `username=${username}; expires=${getExpirationDate(7)}`;
+            displayUsername();
+        }
+
+        // Function to delete the username cookie
+        function deleteUsername() {
+            document.cookie = `username=; expires=${getExpirationDate(-1)}`;
+            displayUsername();
+        }
+
+        // Function to display the username if it exists
+        function displayUsername() {
+            const username = getCookie("username");
+            const usernameDisplay = document.getElementById("username-display");
+            if (username) {
+                usernameDisplay.innerHTML = `Your username is: ${username}`;
+            } else {
+                usernameDisplay.innerHTML = "No username saved.";
+            }
+        }
+
+        // تحقق من وجود اسم مستخدم مخزن في الكوكيز عند تحميل الصفحة
+        window.addEventListener("load", () => {
+            displayUsername();
+        });
 
         // استجابة لتقديم النموذج
         profileForm.addEventListener("submit", function(event) {
             event.preventDefault();
-            const newName = nameInput.value;
-
-            if (newName) {
-                currentName.textContent = newName;
-                // حفظ الاسم في Local Storage
-                localStorage.setItem("profileName", newName);
-            }
-
-            nameInput.value = "";
-        });
-        
-        // حفظ الصورة المحدثة في Local Storage
-        profileImage.addEventListener("load", function () {
-            const canvas = document.createElement('canvas');
-            const context = canvas.getContext('2d');
-            canvas.width = this.naturalWidth;
-            canvas.height = this.naturalHeight;
-            context.drawImage(this, 0, 0);
-            const image = canvas.toDataURL('image/jpeg', 0.9);
-            localStorage.setItem("profileImage", image);
+            saveUsername();
+            usernameInput.value = "";
         });
     </script>
 </body>
