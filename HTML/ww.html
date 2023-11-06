@@ -1,94 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <!-- الوسوم الأخرى هنا -->
+    <meta charset="UTF-8">
+    <title>الملف الشخصي</title>
+    <style>
+        /* إضافة أي تنسيقات CSS حسب الحاجة */
+    </style>
 </head>
 <body>
-    <!-- المحتوى الآخر هنا -->
+    <h1>الملف الشخصي</h1>
 
-    <form id="login-signup-form">
-        <!-- نموذج الإنشاء -->
-        <div id="signup-form">
-            <h2>إنشاء حساب</h2>
-            <label for="new-username">اسم المستخدم:</label>
-            <input type="text" id="new-username" placeholder="اكتب اسم المستخدم" required>
+    <h2>المعلومات الحالية:</h2>
+    <p>الاسم: <span id="current-name">John Doe</span></p>
+    <p>الصورة:</p>
+    <img src="default-profile-image.jpg" id="profile-image" alt="الصورة الشخصية" width="150">
 
-            <label for="new-mail">البريد الإلكتروني:</label>
-            <input type="email" id="new-mail" placeholder="اكتب البريد الإلكتروني" required>
+    <h2>تغيير المعلومات:</h2>
+    <form id="profile-form">
+        <label for="new-name">الاسم الجديد:</label>
+        <input type="text" id="new-name" placeholder="الاسم الجديد" required>
 
-            <label for="new-password">كلمة المرور:</label>
-            <input type="password" id="new-password" placeholder="اكتب كلمة المرور" required>
+        <label for="new-image">اختر صورة جديدة:</label>
+        <input type="file" id="new-image" accept="image/*">
 
-            <button id="signup-button">إنشاء حساب</button>
-        </div>
-
-        <!-- نموذج تسجيل الدخول -->
-        <div id="login-form">
-            <h2>تسجيل الدخول</h2>
-            <label for="username">اسم المستخدم:</label>
-            <input type="text" id="username" placeholder="اكتب اسم المستخدم" required>
-
-            <label for="password">كلمة المرور:</label>
-            <input type="password" id="password" placeholder="اكتب كلمة المرور" required>
-
-            <button id="login-button">تسجيل الدخول</button>
-        </div>
-
-        <button id="toggle-form-button">تبديل بين النموذجين</button>
+        <button type="submit">حفظ التغييرات</button>
     </form>
 
     <script>
-        const toggleButton = document.querySelector("#toggle-form-button");
-        const loginForm = document.querySelector("#login-form");
-        // تعبئة نموذج تسجيل الدخول
-const usernameInputLogin = loginForm.querySelector("#username");
-const passwordInputLogin = loginForm.querySelector("#password");
-        const signupForm = document.querySelector("#signup-form");
-        // تعبئة نموذج إنشاء حساب
-const usernameInputSignup = signupForm.querySelector("#new-username");
-const mailInputSignup = signupForm.querySelector("#new-mail");
-const passwordInputSignup = signupForm.querySelector("#new-password");
-        
-        const signupButton = document.querySelector("#signup-button");
-        const loginButton = document.querySelector("#login-button");
+        const nameInput = document.getElementById("new-name");
+        const imageInput = document.getElementById("new-image");
+        const currentName = document.getElementById("current-name");
+        const profileImage = document.getElementById("profile-image");
+        const profileForm = document.getElementById("profile-form");
 
-        toggleButton.addEventListener("click", function (event) {
+        // استجابة لتقديم النموذج
+        profileForm.addEventListener("submit", function(event) {
             event.preventDefault();
-            loginForm.style.display = loginForm.style.display === "none" ? "block" : "none";
-            signupForm.style.display = signupForm.style.display === "none" ? "block" : "none";
-        });
+            const newName = nameInput.value;
+            const newImage = imageInput.files[0];
 
-        signupButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            // تنفيذ عمليات التحقق والمعالجة لإنشاء الحساب هنا
-            const newUsername = document.getElementById('new-username').value;
-            const newMail = document.getElementById('new-mail').value;
-            const newPassword = document.getElementById('new-password').value;
+            if (newName) {
+                currentName.textContent = newName;
+            }
 
-            // قم بتنفيذ التحقق ومعالجة البيانات هنا
+            if (newImage) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    profileImage.src = e.target.result;
+                };
+                reader.readAsDataURL(newImage);
+            }
 
-            // بعد إنشاء الحساب بنجاح، يمكنك توجيه المستخدم إلى صفحة أخرى أو عرض رسالة نجاح.
-
-            // على سبيل المثال:
-            // window.location.href = "رابط صفحة نجاح";
-            // أو
-            // عرض رسالة نجاح.
-        });
-
-        loginButton.addEventListener("click", function (event) {
-            event.preventDefault();
-            // تنفيذ عمليات التحقق والمعالجة لتسجيل الدخول هنا
-            const username = document.getElementById('username').value;
-            const password = document.getElementById('password').value;
-
-            // قم بتنفيذ التحقق ومعالجة البيانات هنا
-
-            // بناءً على نتيجة عملية تسجيل الدخول، يمكنك توجيه المستخدم إلى صفحة أخرى أو عرض رسالة نجاح أو فشل.
-
-            // على سبيل المثال:
-            // window.location.href = "رابط صفحة نجاح أو فشل";
-            // أو
-            // عرض رسالة نجاح أو فشل.
+            nameInput.value = "";
+            imageInput.value = null;
         });
     </script>
 </body>
