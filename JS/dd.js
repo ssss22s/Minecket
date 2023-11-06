@@ -1,25 +1,26 @@
-const form = document.querySelector("#signup-form");
+<script>
+    const form = document.querySelector("#login-form");
+    const message = document.querySelector("#login-message");
 
-form.addEventListener("submit", function (event) {
-    event.preventDefault();
-    const usernameInput = document.querySelector("#username");
-    const confirmInput = document.querySelector("#confirm");
-    const mailInput = document.querySelector("#mail");
-    const passwordInput = document.querySelector("#password");
+    form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        const usernameInput = document.querySelector("#username").value.trim();
+        const passwordInput = document.querySelector("#password").value.trim();
 
-    const username = usernameInput.value.trim();
-    const confirm = confirmInput.value.trim();
-    const mail = mailInput.value.trim();
-    const password = passwordInput.value.trim();
+        // يمكنك هنا إجراء الاتصال بقاعدة البيانات والتحقق من وجود الحساب
 
-    // Add validation logic for username, email, and password (similar to what you did for login)
+        // إذا كان لديه حساب، يمكن توجيهه إلى صفحة أخرى بعد تسجيل الدخول
 
-    if (/* Validation checks */) {
-        // Handle invalid data and show error messages
-        return;
+        // إذا لم يكن لديه حساب، عرض الرسالة
+        if (!hasAccount(usernameInput, passwordInput)) {
+            message.style.display = "block";
+        }
+    });
+
+    // يمكنك تحديد الدالة التي تتحقق من وجود الحساب هنا
+    function hasAccount(username, password) {
+        // يجب أن تتحقق من وجود الحساب بناءً على قاعدة البيانات أو طريقة أخرى
+        // تعويضيًا، سنقوم بمحاكاة الامر في هذا المثال
+        return username === "user" && password === "password";
     }
-
-    // If data is valid, you can save the user information to your server or wherever you want
-
-    // Redirect to a success page or perform other actions
-});
+</script>
