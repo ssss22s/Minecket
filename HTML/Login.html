@@ -141,24 +141,3 @@
 
 
 
-
-    <script>
-        // عند تحميل الصفحة
-        window.addEventListener('load', function () {
-            if (!isUserLoggedIn()) {
-                // إذا لم يكن المستخدم مسجل الدخول، قم بتحويله إلى صفحة التسجيل
-                alert('ليس لديك حساب. يجب عليك التسجيل أولاً.');
-                window.location.href = 'signup.html'; // قم بتحديد المسار الصحيح لصفحة التسجيل
-            }
-        });
-
-        // دالة للتحقق من حالة تسجيل الدخول باستخدام ملف تعريف الارتباط
-        function isUserLoggedIn() {
-            const cookie = document.cookie;
-            return cookie.includes("logged=true");
-        }
-    </script>
-</body>
-</html>
-
-
