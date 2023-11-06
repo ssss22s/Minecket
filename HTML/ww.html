@@ -82,29 +82,17 @@
 
     <h2>تغيير المعلومات:</h2>
     <form id="profile-form">
-        <label for="new-username">الاسم الجديد:</label>
-        <input type="text" id="new-username" placeholder="الاسم الجديد" required>
+        <label for="new-name">الاسم الجديد:</label>
+        <input type="text" id="username" placeholder="الاسم الجديد" required>
 
-        <button type="submit">حفظ التغييرات</button>
+        <button type="submit" onclick="saveUsername()">حفظ التغييرات</button>
+        <button type="button" onclick="deleteUsername()">حذف الاسم</button>
     </form>
 
-    <div id="username-display">
-        Your username is:
-    </div>
-
     <script>
-        const usernameInput = document.getElementById("new-username");
-        const imageInput = document.getElementById("new-image");
-        const profileImage = document.getElementById("output");
-        const profileForm = document.getElementById("profile-form");
-
-        function loadFile(event) {
-            profileImage.src = URL.createObjectURL(event.target.files[0]);
-        }
-
-        // Function to save the username in a cookie
+        // Function to save the username
         function saveUsername() {
-            const username = usernameInput.value;
+            const username = document.getElementById("username").value;
             document.cookie = `username=${username}; expires=${getExpirationDate(7)}`;
             displayUsername();
         }
@@ -126,17 +114,19 @@
             }
         }
 
-        // تحقق من وجود اسم مستخدم مخزن في الكوكيز عند تحميل الصفحة
-        window.addEventListener("load", () => {
-            displayUsername();
-        });
+        const nameInput = document.getElementById("username");
+        const imageInput = document.getElementById("new-image");
+        const profileImage = document.getElementById("output");
 
-        // استجابة لتقديم النموذج
-        profileForm.addEventListener("submit", function(event) {
-            event.preventDefault();
-            saveUsername();
-            usernameInput.value = "";
-        });
+        // تحقق من وجود بيانات مخزنة في Local Storage
+        const storedName = localStorage.getItem("name");
+        if (storedName) {
+            nameInput.value = storedName;
+            displayUsername();
+        }
+
+        function loadFile(event) {
+            profileImage.src = URL.createObjectURL(event.target.files[0]);
+        }
     </script>
 </body>
-</html>
