@@ -66,31 +66,30 @@
     </style>
 </head>
 <body>
-    <h1>الملف الشخصي</h1>
+<h1>الملف الشخصي</h1>
 
     <h2>المعلومات الحالية:</h2>
-    <p>الاسم: <span id="current-name">John Doe</span></p>
+    <p id="username-display">No username saved.</p>
     <p>الصورة:</p>
     <div class="profile-pic">
-      <label class="-label" for="new-image">
-        <span class="glyphicon glyphicon-camera"></span>
-        <span>Change Image</span>
-      </label>
-      <input id="new-image" type="file" accept="image/*" onchange="loadFile(event)" />
-      <img id="output" width="200" />
+        <label class="-label" for="new-image">
+            <span class="glyphicon glyphicon-camera"></span>
+            <span>Change Image</span>
+        </label>
+        <input id="new-image" type="file" accept="image/*" onchange="loadFile(event)" />
+        <img src="https://cdn.pixabay.com/photo/2017/08/06/21/01/louvre-2596278_960_720.jpg" id="output" width="200" />
     </div>
 
     <h2>تغيير المعلومات:</h2>
     <form id="profile-form">
-        <label for="new-name">الاسم الجديد:</label>
+        <label for="username">الاسم الجديد:</label>
         <input type="text" id="username" placeholder="الاسم الجديد" required>
-
-        <button type="submit" onclick="saveUsername()">حفظ التغييرات</button>
+        <button type="submit">حفظ التغييرات</button>
         <button type="button" onclick="deleteUsername()">حذف الاسم</button>
     </form>
 
     <script>
-        // Function to save the username
+        // Function to save the username in a cookie
         function saveUsername() {
             const username = document.getElementById("username").value;
             document.cookie = `username=${username}; expires=${getExpirationDate(7)}`;
@@ -114,19 +113,22 @@
             }
         }
 
-        const nameInput = document.getElementById("username");
-        const imageInput = document.getElementById("new-image");
-        const profileImage = document.getElementById("output");
-
-        // تحقق من وجود بيانات مخزنة في Local Storage
-        const storedName = localStorage.getItem("name");
-        if (storedName) {
-            nameInput.value = storedName;
-            displayUsername();
+        // Function to get the expiration date for the cookie
+        function getExpirationDate(days) {
+            const date = new Date();
+            date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+            return date.toUTCString();
         }
 
-        function loadFile(event) {
-            profileImage.src = URL.createObjectURL(event.target.files[0]);
+        // Function to retrieve a specific cookie by name
+        function getCookie(name) {
+            const value = `; ${document.cookie}`;
+            const parts = value.split(`; ${name}=`);
+            if (parts.length === 2) return parts.pop().split(";").shift();
         }
+
+        // تحقق من وجود اسم مستخدم مخزن في الكوكيز عند تحميل الصفحة
+        displayUsername();
     </script>
 </body>
+</html>
