@@ -253,7 +253,6 @@
 <script>
     // التحقق من حالة تسجيل الدخول بواسطة JavaScript
     // إذا لم يكن المستخدم مسجل الدخول، يتم توجيهه إلى صفحة التسجيل
-
     // اضف هذا الكود لزر تسجيل الخروج
     const logoutButton = document.getElementById('logout-button');
     logoutButton.addEventListener('click', function () {
@@ -261,6 +260,6 @@
         document.cookie = "logged=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/";
         
         // قم بتوجيه المستخدم إلى صفحة تسجيل الدخول أو أي صفحة أخرى بعد تسجيل الخروج
-        window.location.href = 'login.html'; // قم بتحديد المسار الصحيح لصفحة تسجيل الدخول
+        window.location.href = 'Login.html'; // قم بتحديد المسار الصحيح لصفحة تسجيل الدخول
     });
 </script>
