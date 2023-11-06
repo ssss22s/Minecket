@@ -35,36 +35,48 @@
             <button type="submit">Sign Up</button>
         </div>
     </form>
-    
-<script>
-    let userDatabase = []; // يمكنك استخدام مصفوفة لتخزين معلومات الحسابات
 
-    const loginForm = document.getElementById('login-form');
-    const signupForm = document.getElementById('signup-form');
+    <script>
+        const loginForm = document.getElementById('login-form');
+        const signupForm = document.getElementById('signup-form');
 
-    loginForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const username = document.getElementById('username').value;
-        const password = document.getElementById('password').value;
+        loginForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
 
-        const user = userDatabase.find((user) => user.username === username && user.password === password);
+            // قم بالتحقق من تسجيل الدخول هنا باستخدام JavaScript والوصول إلى ملف JSON
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    const user = data.find(user => user.username === username && user.password === password);
 
-        if (user) {
-            alert('تم تسجيل الدخول بنجاح!');
-        } else {
-            alert('فشل تسجيل الدخول. المعلومات غير صحيحة.');
-        }
-    });
+                    if (user) {
+                        alert('تم تسجيل الدخول بنجاح!');
+                    } else {
+                        alert('فشل تسجيل الدخول. المعلومات غير صحيحة.');
+                    }
+                });
+        });
 
-    signupForm.addEventListener('submit', function (event) {
-        event.preventDefault();
-        const newUsername = document.getElementById('new-username').value;
-        const newPassword = document.getElementById('new-password').value;
+        signupForm.addEventListener('submit', function (event) {
+            event.preventDefault();
+            const newUsername = document.getElementById('new-username').value;
+            const newPassword = document.getElementById('new-password').value;
 
-        // قم بإضافة المستخدم الجديد إلى قاعدة البيانات
-        userDatabase.push({ username: newUsername, password: newPassword });
+            // قم بإضافة المستخدم الجديد إلى ملف JSON
+            fetch('data.json')
+                .then(response => response.json())
+                .then(data => {
+                    data.push({ username: newUsername, password: newPassword });
 
-        alert('تم إنشاء حساب جديد ويمكنك الآن تسجيل الدخول.');
-    });
-</script>
+                    // ارسل البيانات المحدثة مرة أخرى إلى ملف JSON
+                    fetch('data.json', {
+                        method: 'PUT',
+                        body: JSON.stringify(data),
+                        headers: {
+                            'Content-Type': 'application/json'
+                        }
+                    });
 
+                    alert('تم إنشاء حساب جديد ويمكنك الآن تسجيل
