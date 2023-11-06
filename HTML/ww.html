@@ -62,7 +62,7 @@
         let userDatabase = []; // ستحتوي على معلومات الحسابات
 
         // قراءة ملف accounts.json إذا كان موجودًا
-        const accountsFilePath = path.join(__dirname, 'accounts.json'); // تحديد مسار الملف
+        const accountsFilePath = path.join(__dirname, 'data.json'); // تحديد مسار الملف
         if (fs.existsSync(accountsFilePath)) {
             const accountsData = fs.readFileSync(accountsFilePath, 'utf-8');
             userDatabase = JSON.parse(accountsData);
