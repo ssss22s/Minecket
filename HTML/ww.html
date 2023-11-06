@@ -3,22 +3,27 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Log In</title>
+    <title>تسجيل الدخول</title>
 </head>
 <body>
-    <h2>Log In</h2>
-   <form id="login-form">
-    <div class="form-group">
-        <label for="username">اسم المستخدم:</label>
-        <input type="text" id="username" name="username" required>
-    </div>
-    <div class="form-group">
-        <label for="password">كلمة المرور:</label>
-        <input type="password" id="password" name="password" required>
-    </div>
-    <button type="submit">تسجيل الدخول</button>
-</form>
-    <a href="signup.html">ليس لديك حساب؟ سجل جديد</a>
+    <h1>تسجيل الدخول</h1>
+    <!-- نموذج تسجيل الدخول -->
+    <form id="login-form">
+        <!-- حقول تسجيل الدخول -->
+        <div class="form-group">
+            <label for="username">اسم المستخدم:</label>
+            <input type="text" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="password">كلمة المرور:</label>
+            <input type="password" id="password" name="password" required>
+        </div>
+        <button type="submit">تسجيل الدخول</button>
+    </form>
+    <!-- رابط للانتقال إلى صفحة تسجيل الحساب -->
+    <p>ليس لديك حساب بعد؟ <a href="dd.html">تسجيل حساب جديد</a></p>
 </body>
 </html>
-
+<!-- ... -->
+<div id="login-message" style="color: red; display: none;">ليس لديك حساب بعد. يرجى التسجيل أولاً.</div>
+<!-- ... -->
