@@ -1,4 +1,6 @@
-var loadFile = function (event) {
-  var image = document.getElementById("output");
-  image.src = URL.createObjectURL(event.target.files[0]);
-};
+if (!isUserLogged()) {
+    // إعطاء رسالة للمستخدم بأنه يجب عليه إنشاء حساب أولاً
+    alert("يجب عليك إنشاء حساب أولاً");
+    // قم بتوجيه المستخدم إلى صفحة إنشاء الحساب
+    window.location.href = "signup.html";
+}
